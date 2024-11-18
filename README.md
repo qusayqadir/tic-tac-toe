@@ -1,7 +1,6 @@
 # Tic-Tac-Toe Game (SFWRENG 2OP3: Assignment 06)
 
-This repository contains a Java-based implementation of the classic **Tic-Tac-Toe** game, developed as part of an academic assignment for the SFWRENG 2OP3 course. The project is designed to demonstrate proficiency in object-oriented programming principles, modular design, and polymorphism. 
-
+This repository contains a Java-based implementation of the classic **Tic-Tac-Toe** game. 
 ---
 
 ## Features
