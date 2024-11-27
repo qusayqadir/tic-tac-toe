@@ -3,11 +3,11 @@
 import java.util.Scanner; 
 
 
+
 public class Game { 
 
     private Board board; 
     private int boardSize; 
-
     
     private Player player1;
     private Player player2; 
@@ -21,37 +21,27 @@ public class Game {
         
         this.gameMode = setGameMode(); 
 
+
         if ( gameMode == 1 ) {
             this.player1 = new HumanPlayer('X'); 
             this.player2 = new HumanPlayer('O'); 
             this.boardSize = 3; 
+            
         }
 
         else if ( gameMode == 2 ){
-            this.boardSize = 3; 
             this.player1 = new HumanPlayer('X'); 
             this.player2 = new ComputerPlayer(1,3,'O');
-            
+            this.boardSize = 3; 
         }
-        else if (gameMode == 3 ) {
-            Scanner scanner = new Scanner(System.in); 
-            System.out.println("Create your own N*N board 3 <= N <= 20");
-            this.boardSize = scanner.nextInt(); 
-            this.player1 = new HumanPlayer('X'); 
-            this.player2 = new HumanPlayer('0'); 
-        }
-        else if (gameMode == 4) {
-            Scanner scanner = new Scanner(System.in); 
-            System.out.println("Create your own N*N board 3 <= N <= 20");
-            this.boardSize = scanner.nextInt(); 
-            this.player1 = new HumanPlayer('X'); 
-            this.player2 = new ComputerPlayer(1, this.boardSize, 'O');
+        else if ( gameMode == 3 ) {
+            this.player1 = new ComputerPlayer(1,3,'X'); 
+            this.player2 = new ComputerPlayer(1,3,'O'); 
+            this.boardSize = 3; 
         }
 
 
         this.board = new Board(boardSize); 
-
-
     } 
 
     public void newGame(){ 
@@ -65,17 +55,17 @@ public class Game {
     public int setGameMode() {
         Scanner scanner = new Scanner(System.in); 
 
+        System.out.println("Enter a game Mode!"); 
         System.out.println("Game Mode 1: Human vs Human"); 
         System.out.println("Game Mode 2: Human vs Computer");
-        System.out.println("Game Mode 3: Human vs Human - Custom Board Size "); 
-        System.out.println("Game Mode 4: Human vs Computer  - Custom Board Size"); 
+        System.out.println("Game Mode 3: Computer vs Computer");
         int tempGameMode =  scanner.nextInt(); 
         return tempGameMode; 
 
     }
 
     public int getTempGameMode() {return gameMode; }
-    
+
     public void setMarker(int row, int col, char symbol) {
 
         char[][] currentBoard = board.getCurrentBoard(); 
@@ -89,7 +79,6 @@ public class Game {
         }
         board.placeMarkers(row, col, symbol);  
     }
-    
     
     public void playGame(boolean isMode2) {
         
@@ -111,15 +100,15 @@ public class Game {
                 }
             }
 
-            if (temp_player == player1 || !isMode2) { // Human player or GameMode1
-                System.out.println((temp_player == player1) ? "Player 1 enter location to place markers" : "Player 2 enter location to place markers");
+            if (temp_player instanceof HumanPlayer || !isMode2) { 
+                System.out.println((temp_player == player1 && temp_player instanceof HumanPlayer) ? "Payer 1 enter location to place markers" : "Player 2 enter location to place markers");
                 String playerLocation = scanner.nextLine();
                 String[] gridLocation = playerLocation.split(","); 
     
                 setMarker(Integer.parseInt(gridLocation[0]), Integer.parseInt(gridLocation[1]), temp_player.getPlayerSymbol()); 
 
             } 
-            else { // Computer move in GameMode2
+            if (temp_player instanceof ComputerPlayer) { 
                 boolean validMove = false; 
                 while (!validMove) {
                     int[] computerGridLocation = temp_player.getComputerMove(); 
@@ -130,16 +119,17 @@ public class Game {
                     }
                 }
             }
-           
-        
     
             if (board.checkWin(temp_player.getPlayerSymbol())) {
-                if(temp_player == player1) {
+                if(temp_player == player1 && temp_player instanceof HumanPlayer) {
                     System.out.println("Player 1 Wins!"); 
                 }
                 else{
-                    if(getTempGameMode() == 2 ){
-                        System.out.println("Computer Wins!"); 
+                    if(temp_player == player1 && temp_player instanceof ComputerPlayer){
+                        System.out.println("Computer 1 Wins!"); 
+                    }
+                    else if (temp_player == player2 && temp_player instanceof ComputerPlayer) {
+                        System.out.println("Computer 2 Wins!"); 
                     }
                     else{
                         System.out.println("Player 2 Wins!"); 
@@ -147,6 +137,7 @@ public class Game {
                 }
                 break; 
             }
+
             if (board.checkBoardFull()){
                 System.out.println("Its a tie, no winners"); 
                 break; 
@@ -161,32 +152,24 @@ public class Game {
                 }
             }
             
-
         }
 
     }
 
-
+  
     public void playGame() {
 
         if (getTempGameMode() == 1 ) {
-            gameMode = 1; 
             playGame(false); 
         }
         else if (getTempGameMode() == 2 ) { 
-            gameMode = 2; 
+            playGame(true); 
+        }
+        else if ( getTempGameMode() == 3 ) {
+
             playGame(true); 
         }
 
-        else if (getTempGameMode() == 3) {
-            gameMode = 3;
-            playGame(false); 
-        }
-
-        else if ( getTempGameMode() == 4 ) {
-            gameMode = 4;
-            playGame(true); 
-        }
 
     }
 
@@ -198,3 +181,4 @@ public class Game {
     }
 
 }
+
