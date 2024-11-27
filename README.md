@@ -6,9 +6,11 @@ This repository contains a Java-based implementation of the classic **Tic-Tac-To
 ## Features
 
 - **Interactive Game Modes**:
-  - Human vs. Human
-  - Human vs. Computer
-  - Computer vs. Computer
+  - Human vs. Human ( 3 x 3)
+  - Human vs. Computer ( 3 x 3 )
+  - Human vs. Human ( N x N Grid 3 <= N <= 20)
+  - Human vs. Computer ( N x N Grid 3 <= N <= 20)
+  - Computer vs. Computer ( 3x3 ONLY )
 - **Computer Player Strategies**:
   - Random move strategy (base implementation)
   - Smarter move strategy (optional bonus)
@@ -39,9 +41,6 @@ This repository contains a Java-based implementation of the classic **Tic-Tac-To
     - Allows seamless switching between human and computer players
   - **Scalability**:
     - Code refactored for modularity, supporting N x N grid and custom M markers win conditions
-- **Principles Applied**:
-  - **Encapsulation**: Protects internal state of classes
-  - **Open-Closed Principle**: Code can be extended (e.g., smarter AI) without modifying base classes
   - **Single-Responsibility Principle**: Each class has a focused responsibility
 
 ---
@@ -50,10 +49,15 @@ This repository contains a Java-based implementation of the classic **Tic-Tac-To
 
 ### Prerequisites
 - **Java**: OpenJDK 21 or later
-- **Build Tool**: Maven
 
 ### Steps
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/tic-tac-toe
    cd tic-tac-toe
+2. Inside tic-tac-toe: 
+  ```bash 
+  javac -d bin src/*.java
+  java -cp bin Game
+
+  
