@@ -27,9 +27,9 @@
 2. Inside tic-tac-toe: 
    ```bash 
    javac -d bin1 GameMode1/*.java
-   java -cp bin Game
+   java -cp bin1 Game
 
    javac -d bin2 GameMode2/*java
-   java -cp bing CustomGame
+   java -cp bin2 CustomGame
 
   
