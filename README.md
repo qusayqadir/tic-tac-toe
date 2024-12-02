@@ -26,7 +26,10 @@
    cd tic-tac-toe
 2. Inside tic-tac-toe: 
    ```bash 
-   javac -d bin src/*.java
+   javac -d bin1 src1/*.java
    java -cp bin Game
+
+   javac -d bin2 src2/*java
+   java -cp bing CustomGame
 
   
