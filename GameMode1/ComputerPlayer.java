@@ -1,3 +1,5 @@
+package Assignment06;
+
 import java.util.Random; 
 
 public class ComputerPlayer extends Player{

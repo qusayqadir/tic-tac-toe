@@ -1,3 +1,7 @@
+package Assignment06; 
+
+
+
 public class Board{
 
     private int size;  
@@ -59,6 +63,7 @@ public class Board{
         return false; 
     }
 
+    // the follow method 
     public boolean checkRow( char symbol) {
 
        
@@ -117,7 +122,7 @@ public class Board{
         }
 
     }
-
+ 
     public boolean checkDiagonal2(char symbol ) {
 
         boolean win = true; 

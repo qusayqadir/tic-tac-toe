@@ -1,5 +1,7 @@
+package Assignment06; 
 
 import java.util.Scanner; 
+
 
 
 public class Game { 
@@ -10,7 +12,7 @@ public class Game {
     protected Player player1;
     protected Player player2; 
 
-    private int gameMode; 
+    protected int gameMode; 
     boolean tryAgain = false; 
 
     public Game() {
@@ -104,7 +106,7 @@ public class Game {
 
             if (temp_player instanceof HumanPlayer || !isMode2) { 
                 
-                System.out.println((temp_player == player1 && temp_player instanceof HumanPlayer) ? "Payer 1 enter location to place markers" : "Player 2 enter location to place markers");
+                System.out.println((temp_player == player1 && temp_player instanceof HumanPlayer) ? "Player 1 enter location to place markers" : "Player 2 enter location to place markers");
                 
                 int[] humanMoves = temp_player.getMove(); 
                 int row = humanMoves[0];
@@ -199,7 +201,7 @@ public class Game {
         while(true) {
             Game game = new Game();  
             game.playGame(); 
-            System.out.println("Do you want to play again?"); 
+            System.out.println("Do you want to play again? (yes/no)"); 
             String response = scanner.nextLine().toLowerCase(); 
             if(!response.equals("yes")){
                 System.out.println("Thanks for playing, Goodbye!");
