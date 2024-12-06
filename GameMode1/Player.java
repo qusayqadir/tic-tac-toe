@@ -1,5 +1,3 @@
-package Assignment06; 
-
 
 
 public abstract class Player { 

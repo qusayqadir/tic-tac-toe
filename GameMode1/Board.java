@@ -1,7 +1,3 @@
-package Assignment06; 
-
-
-
 public class Board{
 
     private int size;  

@@ -1,4 +1,8 @@
+
+
 import java.util.Scanner; 
+
+
 
 public class Game { 
 
@@ -8,7 +12,7 @@ public class Game {
     protected Player player1;
     protected Player player2; 
 
-    private int gameMode; 
+    protected int gameMode; 
     boolean tryAgain = false; 
 
     public Game() {
@@ -36,7 +40,6 @@ public class Game {
 
           
         }
-
 
 
     } 
@@ -103,7 +106,7 @@ public class Game {
 
             if (temp_player instanceof HumanPlayer || !isMode2) { 
                 
-                System.out.println((temp_player == player1 && temp_player instanceof HumanPlayer) ? "Payer 1 enter location to place markers" : "Player 2 enter location to place markers");
+                System.out.println((temp_player == player1 && temp_player instanceof HumanPlayer) ? "Player 1 enter location to place markers" : "Player 2 enter location to place markers");
                 
                 int[] humanMoves = temp_player.getMove(); 
                 int row = humanMoves[0];
