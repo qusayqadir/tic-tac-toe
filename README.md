@@ -16,6 +16,8 @@
     - `Game`: Manages game flow and win/draw detection
     - `Player`: Base class for human and computer players
     - `Board`: Handles grid display and marker placement
+    - `CustomBoard`: Handles NxN Game Board + new win conditons where #inARow to win < N ( boardSize) 
+    - `CustomGame`: Handles the new gameMode with custom board size, and handle the new scenarios
 
 ---
 
